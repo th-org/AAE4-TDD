@@ -4,7 +4,7 @@ import string
 class senhaError(Exception):
     pass
 
-def gerar_senha(tamanho, incluir_maiusculas, incluir_minusculas, incluir_numeros, incluir_simbolos):
+def gerar_senha(tamanho=8, incluir_maiusculas=True, incluir_minusculas=True, incluir_numeros=True, incluir_simbolos=True):
     
     if not any([incluir_maiusculas, incluir_minusculas, incluir_numeros, incluir_simbolos]):
         raise senhaError("Pelo menos um critério deve ser selecionado.")
@@ -30,7 +30,7 @@ def gerar_senha(tamanho, incluir_maiusculas, incluir_minusculas, incluir_numeros
 if __name__ == "__main__":
     try:
         tamanho = int(input("Digite o tamanho da senha: "))
-        senha = gerar_senha(tamanho, incluir_maiusculas=True, incluir_minuscula=True, incluir_numeros=True, incluir_simbolos=True)
+        senha = gerar_senha(tamanho, incluir_maiusculas=True, incluir_minusculas=True, incluir_numeros=True, incluir_simbolos=True)
         print(f"Senha gerada: {senha}")
     except ValueError as e:
         print(f"Erro: {e}")
